@@ -35,10 +35,10 @@
 
 ////////////////////////////////////////
 // Artsey definitions
-#define TIMEOUT_COMBO_2 150
-#define TIMEOUT_COMBO_3 150
-#define TIMEOUT_COMBO_4 150
-#define TIMEOUT_LAYER_HOLD 250
+#define TIMEOUT_COMBO_2 40
+#define TIMEOUT_COMBO_3 40
+#define TIMEOUT_COMBO_4 40
+#define TIMEOUT_LAYER_HOLD 200
 #define ARTSEY_BASE_A A
 #define ARTSEY_BASE_R R
 #define ARTSEY_BASE_T T
