@@ -244,8 +244,8 @@ compatible = "zmk,keymap";
     artsey_base {
         label = "ARTSEY";
         bindings = <
-            XXXXXXX         &artmt LAYER_ID_ART_NUMBERS ARTSEY_BASE_S       &kp ARTSEY_BASE_T               &kp ARTSEY_BASE_R               &artmt LAYER_ID_ART_PARENTHETICALS ARTSEY_BASE_A         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX
-            XXXXXXX         &artmt LAYER_ID_ART_CUSTOM ARTSEY_BASE_O        &kp ARTSEY_BASE_I               &kp ARTSEY_BASE_Y               &artmt LAYER_ID_ART_SYMBOLS ARTSEY_BASE_E                XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX
+            XXXXXXX         &lt LAYER_ID_ART_NUMBERS ARTSEY_BASE_S       &kp ARTSEY_BASE_T               &kp ARTSEY_BASE_R               &lt LAYER_ID_ART_PARENTHETICALS ARTSEY_BASE_A         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX
+            XXXXXXX         &lt LAYER_ID_ART_CUSTOM ARTSEY_BASE_O        &kp ARTSEY_BASE_I               &kp ARTSEY_BASE_Y               &lt LAYER_ID_ART_SYMBOLS ARTSEY_BASE_E                XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX
             XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX
             XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX
         >;
