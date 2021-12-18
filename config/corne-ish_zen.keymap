@@ -139,7 +139,7 @@ behaviors {
 
         ////////////////////////////////////////
         // Artsey Combos
-        combo_artsey { timeout-ms = COMBO_TIMEOUT; key-positions = <25 29>; bindings = <&tog LAYER_ID_ART_BASE>; };
+        combo_artsey { timeout-ms = COMBO_TIMEOUT; key-positions = <25 28>; bindings = <&tog LAYER_ID_ART_BASE>; };
 
 		/*****************************************
 		 * 2 key combos
