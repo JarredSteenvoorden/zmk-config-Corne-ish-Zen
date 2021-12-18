@@ -16,19 +16,18 @@
 ////////////////////////////////////////
 // Layers
 #define BASE    0
-#define LNAV    1
-#define NAV     2
-#define SYM     3
-#define FUNC    4
-#define DISABLE 5
-#define LAYER_ID_ART_BASE           6
-#define LAYER_ID_ART_NUMBERS        7
-#define LAYER_ID_ART_SYMBOLS        8
-#define LAYER_ID_ART_PARENTHETICALS 9
-#define LAYER_ID_ART_NAVIGATION     10
-#define LAYER_ID_ART_CUSTOM         11
+#define NAV     1
+#define SYM     2
+#define FUNC    3
+#define DISABLE 4
+#define LAYER_ID_ART_BASE           5
+#define LAYER_ID_ART_NUMBERS        6
+#define LAYER_ID_ART_SYMBOLS        7
+#define LAYER_ID_ART_PARENTHETICALS 8
+#define LAYER_ID_ART_NAVIGATION     9
+#define LAYER_ID_ART_CUSTOM         10
 
-#define LAYERS_NOT_ART BASE LNAV NAV SYM FUNC
+#define LAYERS_NOT_ART BASE NAV SYM FUNC
 #define LAYERS_ARTSEY LAYER_ID_ART_BASE LAYER_ID_ART_NUMBERS LAYER_ID_ART_SYMBOLS LAYER_ID_ART_PARENTHETICALS LAYER_ID_ART_NAVIGATION LAYER_ID_ART_CUSTOM
 #define LAYERS_ARTSEY_BASE BASE LAYER_ID_ART_BASE
 #define LAYERS_ARTSEY_PLUS BASE LAYERS_ARTSEY
@@ -92,17 +91,8 @@ behaviors {
 
     ////////////////////////////////////////
     // Artsey bindings
-    layer_numbers_kp: layer_numbers_kp { compatible = "zmk,behavior-hold-tap"; label = "layer_numbers_kp"; 
+    artmt: artmt { compatible = "zmk,behavior-hold-tap"; label = "artmt"; 
         #binding-cells = <2>; tapping_term_ms = <TIMEOUT_LAYER_HOLD>; flavor = "tap-preferred"; 
-        bindings = <&mo>, <&kp>; };
-    layer_symbols_kp: layer_symbols_kp { compatible = "zmk,behavior-hold-tap"; label = "layer_symbols_kp"; 
-        #binding-cells = <2>; tapping_term_ms = <TIMEOUT_LAYER_HOLD>; flavor = "tap-preferred"; 
-        bindings = <&mo>, <&kp>; };
-    layer_parentheticals_kp: layer_parentheticals_kp { compatible = "zmk,behavior-hold-tap"; label = "layer_parentheticals_kp";
-        #binding-cells = <2>; tapping_term_ms = <TIMEOUT_LAYER_HOLD>; flavor = "tap-preferred";
-        bindings = <&mo>, <&kp>; };
-    layer_custom_kp: layer_custom_kp { compatible = "zmk,behavior-hold-tap"; label = "layer_custom_kp";
-        #binding-cells = <2>; tapping_term_ms = <TIMEOUT_LAYER_HOLD>; flavor = "tap-preferred";
         bindings = <&mo>, <&kp>; };
 
     ////////////////////////////////////////
@@ -129,12 +119,11 @@ behaviors {
         combo_rgui  { layers = <BASE>; timeout-ms = COMBO_TIMEOUT; key-positions = <31 33>;         bindings = <&st RGUI RGUI>; };
 
         // Cut, Copy, Paste
-        combo_cut   { layers = <BASE>; timeout-ms = COMBO_TIMEOUT; key-positions = <26 27 28>;      bindings = <&kp LC(X)>; };
-        combo_copy  { layers = <BASE>; timeout-ms = COMBO_TIMEOUT; key-positions = <26 27>;         bindings = <&kp LC(C)>; };
-        combo_paste { layers = <BASE>; timeout-ms = COMBO_TIMEOUT; key-positions = <27 28>;         bindings = <&kp LC(V)>; };
+        combo_cut   { layers = <BASE LAYERS_ARTSEY>; timeout-ms = COMBO_TIMEOUT; key-positions = <26 27 28>;      bindings = <&kp LC(X)>; };
+        combo_copy  { layers = <BASE LAYERS_ARTSEY>; timeout-ms = COMBO_TIMEOUT; key-positions = <26 27>;         bindings = <&kp LC(C)>; };
+        combo_paste { layers = <BASE LAYERS_ARTSEY>; timeout-ms = COMBO_TIMEOUT; key-positions = <27 28>;         bindings = <&kp LC(V)>; };
 
-        // Left hand nav toggle, function layer
-        combo_lnav  { layers = <BASE LNAV>; timeout-ms = COMBO_TIMEOUT; key-positions = <14 3 16>;  bindings = <&tog LNAV>; };
+        // Function layer
         combo_func  { layers = <BASE>; timeout-ms = COMBO_TIMEOUT; key-positions = <15 16>;         bindings = <&sl FUNC>; };
 
         ////////////////////////////////////////
@@ -177,7 +166,7 @@ behaviors {
 		 * 3 key combos
 		 *****************************************/
 		combo_art_esc              { layers = <LAYERS_ARTSEY>; timeout-ms = <TIMEOUT_COMBO_3>; key-positions = <KEY_A KEY_R KEY_O>; bindings = <&kp ESC>; };
-		combo_art_layer_navigation { layers = <LAYERS_ARTSEY>; timeout-ms = <TIMEOUT_COMBO_3>; key-positions = <KEY_R KEY_E KEY_I>; bindings = <&tog LAYER_ID_ART_NAVIGATION>; };
+		combo_art_layer_navigation { layers = <BASE LAYERS_ARTSEY>; timeout-ms = <TIMEOUT_COMBO_3>; key-positions = <KEY_R KEY_E KEY_I>; bindings = <&tog LAYER_ID_ART_NAVIGATION>; };
 
 		combo_art_m            { layers = <LAYER_ID_ART_BASE>; timeout-ms = <TIMEOUT_COMBO_3>; key-positions = <KEY_Y KEY_I KEY_O>; bindings = <&kp M>; };
 		combo_art_d            { layers = <LAYER_ID_ART_BASE>; timeout-ms = <TIMEOUT_COMBO_3>; key-positions = <KEY_A KEY_R KEY_T>; bindings = <&kp D>; };
@@ -209,16 +198,6 @@ compatible = "zmk,keymap";
            XXXXXXX         &lt NAV A       &kp S           &kp D           &kp F           &kp G           &kp H           &kp J           &kp K           &kp L           &kp APOS        XXXXXXX
            XXXXXXX         &mt LSHFT Z     &kp X           &kp C           &kp V           &kp B           &kp N           &kp M           &kp COMMA       &kp DOT         &mt RSHFT FSLH  XXXXXXX
                                                            &kp ENTER       &mo SYM         &kp SPC         &kp ENTER       &mo SYM         &kp ENTER
-        >;
-    };
-
-    lnav_layer {
-        label = "QWERTY";
-        bindings = <
-            _______         _______         &kp HOME        &kp UP          &kp END         &kp PG_UP       _______         _______         _______         _______         _______         _______
-            _______         _______         &kp LEFT        &kp DOWN        &kp RIGHT       &kp PG_DN       _______         _______         _______         _______         _______         _______
-            _______         _______         _______         _______         _______         _______         _______         _______         _______         _______         _______         _______
-            _______         _______         _______         _______         _______         _______
         >;
     };
 
@@ -265,8 +244,8 @@ compatible = "zmk,keymap";
     artsey_base {
         label = "ARTSEY";
         bindings = <
-            XXXXXXX         &layer_numbers_kp LAYER_ID_ART_NUMBERS ARTSEY_BASE_S         &kp ARTSEY_BASE_T         &kp ARTSEY_BASE_R         &layer_parentheticals_kp LAYER_ID_ART_PARENTHETICALS ARTSEY_BASE_A         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX
-            XXXXXXX         &layer_custom_kp LAYER_ID_ART_CUSTOM ARTSEY_BASE_O         &kp ARTSEY_BASE_I         &kp ARTSEY_BASE_Y         &layer_symbols_kp LAYER_ID_ART_SYMBOLS ARTSEY_BASE_E         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX
+            XXXXXXX         &artmt LAYER_ID_ART_NUMBERS ARTSEY_BASE_S         &kp ARTSEY_BASE_T         &kp ARTSEY_BASE_R         &artmt LAYER_ID_ART_PARENTHETICALS ARTSEY_BASE_A         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX
+            XXXXXXX         &artmt LAYER_ID_ART_CUSTOM ARTSEY_BASE_O         &kp ARTSEY_BASE_I         &kp ARTSEY_BASE_Y         &artmt LAYER_ID_ART_SYMBOLS ARTSEY_BASE_E         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX
             XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX
             XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX
         >;
