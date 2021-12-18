@@ -110,7 +110,7 @@ behaviors {
     combos {
         compatible = "zmk,combos";
 
-        /*combo_disable { timeout-ms = COMBO_TIMEOUT; key-positions = <1 10>; bindings = <&tog DISABLE>; };
+        combo_disable { timeout-ms = COMBO_TIMEOUT; key-positions = <1 10>; bindings = <&tog DISABLE>; };
 
         // Escape, Tab, Enter, Backspace, Del
         combo_esc   { layers = <LAYERS_NOT_ART>; timeout-ms = COMBO_TIMEOUT; key-positions = <2 3>;   bindings = <&kp ESC>; };
@@ -135,7 +135,7 @@ behaviors {
 
         // Left hand nav toggle, function layer
         combo_lnav  { layers = <BASE LNAV>; timeout-ms = COMBO_TIMEOUT; key-positions = <14 3 16>;  bindings = <&tog LNAV>; };
-        combo_func  { layers = <BASE>; timeout-ms = COMBO_TIMEOUT; key-positions = <15 16>;         bindings = <&sl FUNC>; };*/
+        combo_func  { layers = <BASE>; timeout-ms = COMBO_TIMEOUT; key-positions = <15 16>;         bindings = <&sl FUNC>; };
 
         ////////////////////////////////////////
         // Artsey Combos
