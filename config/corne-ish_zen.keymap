@@ -176,7 +176,7 @@ behaviors {
 		 * 3 key combos
 		 *****************************************/
 		combo_art_esc              { layers = <LAYERS_ARTSEY>; timeout-ms = <TIMEOUT_COMBO_3>; key-positions = <KEY_A KEY_R KEY_O>; bindings = <&kp ESC>; };
-		combo_art_layer_navigation { layers = <LAYERS_ARTSEY>; timeout-ms = <TIMEOUT_COMBO_3>; key-positions = <KEY_R KEY_E KEY_I>; bindings = <&tog LAYER_ID_NAVIGATION>; };
+		combo_art_layer_navigation { layers = <LAYERS_ARTSEY>; timeout-ms = <TIMEOUT_COMBO_3>; key-positions = <KEY_R KEY_E KEY_I>; bindings = <&tog LAYER_ID_ART_NAVIGATION>; };
 
 		combo_art_m            { layers = <LAYER_ID_ART_BASE>; timeout-ms = <TIMEOUT_COMBO_3>; key-positions = <KEY_Y KEY_I KEY_O>; bindings = <&kp M>; };
 		combo_art_d            { layers = <LAYER_ID_ART_BASE>; timeout-ms = <TIMEOUT_COMBO_3>; key-positions = <KEY_A KEY_R KEY_T>; bindings = <&kp D>; };
@@ -264,8 +264,8 @@ compatible = "zmk,keymap";
     artsey_base {
         label = "ARTSEY";
         bindings = <
-            XXXXXXX         &layer_numbers_kp LAYER_ID_NUMBERS ARTSEY_BASE_S         &kp ARTSEY_BASE_T         &kp ARTSEY_BASE_R         &layer_parentheticals_kp LAYER_ID_PARENTHETICALS ARTSEY_BASE_A         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX
-            XXXXXXX         &layer_custom_kp LAYER_ID_CUSTOM ARTSEY_BASE_O         &kp ARTSEY_BASE_I         &kp ARTSEY_BASE_Y         &layer_symbols_kp LAYER_ID_SYMBOLS ARTSEY_BASE_E         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX
+            XXXXXXX         &layer_numbers_kp LAYER_ID_ART_NUMBERS ARTSEY_BASE_S         &kp ARTSEY_BASE_T         &kp ARTSEY_BASE_R         &layer_parentheticals_kp LAYER_ID_ART_PARENTHETICALS ARTSEY_BASE_A         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX
+            XXXXXXX         &layer_custom_kp LAYER_ID_ART_CUSTOM ARTSEY_BASE_O         &kp ARTSEY_BASE_I         &kp ARTSEY_BASE_Y         &layer_symbols_kp LAYER_ID_ART_SYMBOLS ARTSEY_BASE_E         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX
             XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX
             XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX         XXXXXXX
         >;
